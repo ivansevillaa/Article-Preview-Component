@@ -44,14 +44,55 @@
             <p class="article-footer__date">28 Jun 2020</p>
             <figure class="article-footer__icon-share-wrapper">
               <img
+                id="share-button"
                 class="article-footer__icon-share"
                 src="./images/icon-share.svg"
                 alt="share icon"
               />
             </figure>
+            <div
+              id="share-options"
+              class="share-options share-options--disable"
+            >
+              <p class="share-options__text">Share</p>
+              <img
+                class="share-options__logo"
+                src="./images/icon-facebook.svg"
+                alt="facebook logo"
+              />
+              <img
+                class="share-options__logo"
+                src="./images/icon-twitter.svg"
+                alt="twitter logo"
+              />
+              <img
+                class="share-options__logo"
+                src="./images/icon-pinterest.svg"
+                alt="pinterest logo"
+              />
+            </div>
           </div>
         </div>
       </article>
     </main>
   </body>
+
+  <script>
+    const shareButton = document.getElementById("share-button");
+    const shareOptions = document.getElementById("share-options");
+
+    shareButton.addEventListener("click", () => {
+      shareButton.classList.toggle("article-footer__icon-share--dark");
+      shareButton.classList.toggle(
+        "article-footer__icon-share-wrapper--active"
+      );
+      shareOptions.classList.toggle("share-options--disable");
+
+      if (shareButton.src.indexOf("white") === -1) {
+        shareButton.src = "./images/icon-share-white.svg";
+      } else {
+        shareButton.src = "./images/icon-share.svg";
+      }
+    });
+  </script>
 </html>
